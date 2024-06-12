@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Character.scss'
 
 const Character = ({ character, correct }) => {
-    const classes = `character ${correct ? 'correct' : ''}`;
+    const classes = `character ${correct && 'correct'}`;
 
     return (
         <section className={classes}>
