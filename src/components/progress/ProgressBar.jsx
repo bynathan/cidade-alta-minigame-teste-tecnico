@@ -1,5 +1,5 @@
 /* Importing dependencess */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 /* Importing styles */
 import './ProgressBar.scss'
@@ -7,12 +7,20 @@ import './ProgressBar.scss'
 const ProgressBar = ({ onProgressFinish }) => {
     const [finished, setFinished] = useState(false);
 
-    if(!finished){
-        setTimeout(() => {
-            setFinished(true);
-            onProgressFinish('O tempo expirou!');
-        }, 10000)
-    }
+    useEffect(() => {
+        let timeoutId;
+
+        if (!finished) {
+            timeoutId = setTimeout(() => {
+                setFinished(true);
+                onProgressFinish('O tempo expirou!');
+            }, 10000);
+        }
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [finished, onProgressFinish]);
 
     return (
         <div className='progress'>
