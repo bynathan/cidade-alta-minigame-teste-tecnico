@@ -37,7 +37,7 @@ const Characters = ({successAction, loserAction}) => {
 
     /* Responsible for checking whether the user typed the keys in the correct order and directing them. */
     const handleKeyDown = (event) => {
-        const keyPressed = event.key;
+        const keyPressed = event.key.toLowerCase();
 
         if (keyPressed === characters[inputValue]) {
             const updatedKeyStatus = [...keyStatus];
