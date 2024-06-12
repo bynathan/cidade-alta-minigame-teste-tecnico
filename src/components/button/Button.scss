@@ -1,0 +1,27 @@
+/* Style */
+button{
+    width: 280px;
+    height: 80px;
+    border: none;
+    background: #E6AE40;
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFF;
+    text-transform: capitalize;
+    text-align: center;
+    position: relative;
+    white-space: nowrap;
+    transition: background .6s;
+    cursor: pointer;
+    &:hover{
+        background: #FFC046;
+    }
+    img{
+        width: calc(100% + 10px) !important;
+        height: calc(100% + 7px) !important;
+        position: absolute;
+        top: -4px !important;
+        left: -4px !important;
+        z-index: unset !important;
+    }
+}

@@ -1,0 +1,180 @@
+/* Importinging fonts */
+@font-face {
+    font-family: 'Europa Grotesk';
+    src: url('./assets/fonts/Europa Grotesk.ttf') format('truetype');
+}
+
+/* Animations */
+@keyframes enterContent {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    60%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes opacityContent {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/* Global styles */
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Europa Grotesk', sans-serif;
+    background: url('./assets/images/background.png') center 0/cover no-repeat;
+}
+
+/* Minigame styles */
+.minigame{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00000040;
+    backdrop-filter: blur(7px);
+    .dialog{
+        width: 100%;
+        max-width: 600px;
+        height: 275px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 70px 15px 15px;
+        background: #11131E;
+        border: 1px solid #FFC046;
+        z-index: -1;
+        animation: enterContent 1s;
+        img{
+            &:nth-child(1){
+                position: absolute;
+                width: 95%;
+                top: -26px;
+                z-index: -1;
+            }
+            &:nth-child(2){
+                width: calc(100% + 28px);
+                height: calc(100% + 15px);
+                position: absolute;
+                top: -7px;
+                left: -12px;
+                z-index: -2;
+            }
+        }
+        h1{
+            font-size: 30px;
+            font-weight: 500;
+            color: #FFF;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        section{
+            animation: opacityContent 0.4s;
+            &.step-start{
+                width: unset;
+                display: flex;
+                justify-content: center;
+                margin: auto 0 10px 0;
+            }
+            &.step-game{
+                width: 85%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: auto 0 10px 0;
+                p{
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #FFF;
+                    text-align: center;
+                    margin: auto 0 6px;
+                }
+            }
+            &.step-success{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: auto 0 10px 0;
+                p{
+                    font-family: sans-serif;
+                    font-size: 18px;
+                    font-weight: 200;
+                    color: #FFF;
+                    text-align: center;
+                    margin: auto 0;
+                }
+                div{
+                    width: 85%;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 10px;
+                    input{
+                        height: 50px;
+                        border: none;
+                        font-family: sans-serif;
+                        font-size: 15px;
+                        font-weight: 700;
+                        text-align: center;
+                        text-transform: uppercase;
+                        border-radius: 6px;
+                        transition: background .6s, color .6s;
+                        cursor: pointer;
+                        &:first-child{
+                            background: #1B2131;
+                            color: #9C9C9C;
+                            &:hover{
+                                background: #25293f;
+                            }
+                        }
+                        &:last-child{
+                            background: #E6AE40;
+                            color: #1B2131;
+                            &:hover{
+                                background: #FFC046;
+                            }
+                        }
+                    }
+                }
+            }
+            &.step-loser{
+                width: unset;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: auto 0 10px 0;
+                p{
+                    font-family: sans-serif;
+                    font-size: 18px;
+                    font-weight: 200;
+                    color: #FFF;
+                    text-align: center;
+                    margin: auto 0;
+                }
+            }
+        }
+    }
+}

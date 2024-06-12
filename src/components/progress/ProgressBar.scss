@@ -1,0 +1,27 @@
+/* Animations */
+@keyframes progressBarTime {
+    from{
+        width: 100%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+/* Style */
+.progress{
+    height: 10px;
+    border-radius: 6px;
+    background: #9C9C9C;
+    overflow: hidden;
+    &-bar{
+        width: 0%;
+        height: 100%;
+        background: #FFC046;
+        border-radius: 6px;
+        animation: progressBarTime linear 10s;
+        &.finished{
+            animation: unset !important;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+/* Animastions */
+@keyframes changeColorKeyCorrect {
+    from{
+        border-color: #9C9C;
+        background: #1B2131;
+        color: #9C9C9C;
+    }
+    to{
+        border-color: #FFC046;
+        background: #FFC046;
+        color: #1B2131;
+    }
+}
+
+/* Style */
+.character{
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1B2131;
+    border: 2px solid #9C9C9C;
+    border-radius: 8px;
+    font-size: 35px;
+    font-weight: 200;
+    color: #9C9C9C;
+    text-transform: uppercase;
+    &.correct{
+        border-color: #FFC046;
+        background: #FFC046;
+        color: #1B2131;
+        animation: changeColorKeyCorrect linear .2s !important;
+    }
+}
